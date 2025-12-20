@@ -148,7 +148,7 @@ public class RabbitMQWatcher implements Watcher {
     /**
      * Starts consuming messages from the queue.
      */
-    private void startConsuming() {
+    private synchronized void startConsuming() {
         if (running) {
             return;
         }
@@ -229,10 +229,11 @@ public class RabbitMQWatcher implements Watcher {
      * @return sender instance ID
      */
     private String extractSenderId(String message) {
-        if (message == null || !message.contains(MESSAGE_SEPARATOR)) {
+        if (message == null || message.isEmpty() || !message.contains(MESSAGE_SEPARATOR)) {
             return "";
         }
-        return message.split(MESSAGE_SEPARATOR)[0];
+        String[] parts = message.split(MESSAGE_SEPARATOR, 2);
+        return parts.length > 0 ? parts[0] : "";
     }
 
     /**
