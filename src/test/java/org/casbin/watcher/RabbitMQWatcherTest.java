@@ -210,6 +210,9 @@ class RabbitMQWatcherTest {
         boolean received = latch.await(5, TimeUnit.SECONDS);
         assertTrue(received, "Update should have been received");
 
+        // Give a moment for the policy to be fully loaded after the callback
+        Thread.sleep(100);
+
         // Verify enforcer2 has the new policy
         assertTrue(enforcer2.enforce("alice", "data2", "write"), 
                    "Enforcer2 should have the new policy after synchronization");
