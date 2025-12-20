@@ -1,5 +1,6 @@
 # jCasbin RabbitMQ Watcher
 
+[![CI](https://github.com/jcasbin/jcasbin-rabbitmq-watcher/workflows/CI/badge.svg)](https://github.com/jcasbin/jcasbin-rabbitmq-watcher/actions)
 [![Maven Central](https://img.shields.io/maven-central/v/org.casbin/jcasbin-rabbitmq-watcher.svg)](https://mvnrepository.com/artifact/org.casbin/jcasbin-rabbitmq-watcher)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -74,6 +75,12 @@ RabbitMQWatcher watcher = new RabbitMQWatcher(
     "my_custom_exchange"
 );
 ```
+
+For more detailed examples, see [RabbitMQWatcherDemo.java](src/test/java/org/casbin/watcher/example/RabbitMQWatcherDemo.java) which includes:
+- Basic usage examples
+- Multi-instance synchronization scenarios
+- Custom exchange configuration
+- Different connection methods
 
 ## How It Works
 
