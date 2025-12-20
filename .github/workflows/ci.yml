@@ -29,6 +29,7 @@ jobs:
     
     - name: Run tests
       run: mvn -B test
+      timeout-minutes: 15
     
     - name: Verify package
       run: mvn -B verify
