@@ -48,7 +48,7 @@ jobs:
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: |
         npm install -g @conveyal/maven-semantic-release semantic-release
-        semantic-release --prepare @conveyal/maven-semantic-release --publish @semantic-release/github,@conveyal/maven-semantic-release --verify-conditions @semantic-release/github,@conveyal/maven-semantic-release
+        npx semantic-release
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
